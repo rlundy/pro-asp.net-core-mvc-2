@@ -32,6 +32,20 @@ To create the Bower file required by the example projects:
 
 ---
 
+On **Page 235**, this code is shown for consuming a partial view:
+
+    @Html.Partial("ProductSummary", p)
+
+In recent versions of Visual Studio 2017, this produces a warning:
+
+> Use of `IHtmlHelper.Partial` may result in application deadlocks. Consider using `<partial>` Tag Helper or `IHtmlHelper.PartialAsync`.
+
+This warning can be resolved by using the `partial` tag helper instead:
+
+    <partial name="ProductSummary" model="@p" />
+
+---
+
 On **Page 859**, the jQuery code that selects invalid elements and applies a Bootstrap class won't work with the final release of Bootstrap 4 (although it does work with the pre-release version specified in the book). If you want to use the final release, then you will need to replace the contents of the `script` element that contains the jQuery code in **Listing 27-10** with the following:
 
     ...
